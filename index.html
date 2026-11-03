@@ -3305,7 +3305,7 @@ html[lang="te"] {
             </button>
 
             <p style="font-size: 0.75rem; color: #7B8594; margin-top: 1rem; text-align: center; margin-bottom: 0;">
-              <strong>Static Frontend Demonstration Notice:</strong> This form validates inputs using client-side JavaScript. As no backend database is connected, no transmission occurs across the network.
+              Submitting opens your email app with the request addressed to <a href="mailto:teja453@gmail.com">teja453@gmail.com</a>. Review the message and press Send. Do not include confidential or privileged case information.
             </p>
           </form>
 
@@ -5938,7 +5938,7 @@ function initContactFormValidation() {
   });
 
   form.addEventListener('submit', (e) => {
-    e.preventDefault(); // Never perform server submit
+    e.preventDefault();
 
     let isValid = true;
 
@@ -5999,32 +5999,32 @@ function initContactFormValidation() {
       return;
     }
 
-    // Success State - Explaining frontend demonstration mode
+    const recipient = 'teja453@gmail.com';
+    const subject = `Appointment request from ${nameInput.value.trim()}`;
+    const body = [
+      'Appointment request from the Telugu Law House website',
+      '',
+      `Full Name: ${nameInput.value.trim()}`,
+      `Email Address: ${emailInput.value.trim()}`,
+      `Mobile Number: ${phoneInput.value.trim()}`,
+      `Practice Domain: ${practiceInput.options[practiceInput.selectedIndex].text}`,
+      '',
+      'Brief Summary:',
+      messageInput.value.trim()
+    ].join('\r\n');
+    const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
     if (alertBox) {
       alertBox.className = 'form-feedback-alert success show';
       alertBox.innerHTML = `
-        <h4 style="margin-bottom: 0.5rem; color: #1B5E20; font-family: var(--font-heading); font-size: 1.25rem;">
-          Inquiry Validated Successfully (Demonstration Mode)
-        </h4>
-        <p style="margin-bottom: 0.5rem;">
-          Thank you, <strong>${escapeHtml(nameInput.value.trim())}</strong>. Your inquiry details for <em>${escapeHtml(practiceInput.options[practiceInput.selectedIndex].text)}</em> have passed client-side validation.
-        </p>
-        <p style="font-size: 0.8125rem; color: #2E7D32; margin-bottom: 0;">
-          <strong>Notice:</strong> As this is a static frontend website demonstration, no data has been transmitted across the network or stored in any database. To reach our chambers directly, please contact our registry at <code>+91-9948367776</code> or <code>teja453@gmail.com</code>.
-        </p>
+        <p style="margin-bottom: 0.5rem;"><strong>Your email app should open with the appointment request ready.</strong> Please review it and press Send; the request is not sent until you do.</p>
+        <p style="font-size: 0.8125rem; margin-bottom: 0;">If no email app opens, send your request to <a href="mailto:${recipient}">${recipient}</a>.</p>
       `;
       alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
-    // Reset form after successful submission
-    form.reset();
+    window.location.href = mailtoUrl;
   });
-
-  function escapeHtml(string) {
-    const div = document.createElement('div');
-    div.textContent = string;
-    return div.innerHTML;
-  }
 }
 
 
