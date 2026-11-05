@@ -1062,15 +1062,19 @@ html[lang="te"] {
 .lawyer-photo-wrap {
   position: relative;
   height: 300px;
-  background-color: #E6E4DF;
+  background: radial-gradient(circle at top, rgba(255,255,255,0.88), rgba(184,154,98,0.18) 32%, rgba(16,29,50,0.07) 100%), linear-gradient(135deg, #F7F3ED 0%, #E3D7BF 100%);
   overflow: hidden;
+  border-bottom: 1px solid rgba(16, 29, 50, 0.08);
 }
 
 .lawyer-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
+  filter: saturate(1.08) contrast(1.03) brightness(1.02);
   transition: transform var(--transition-slow);
+  background-color: #E7E0D4;
 }
 
 .lawyer-card:hover .lawyer-photo {
@@ -1145,8 +1149,11 @@ html[lang="te"] {
 .profile-main-photo {
   width: 100%;
   height: 380px;
-  background-color: #E5E3DE;
+  background: radial-gradient(circle at top, rgba(255,255,255,0.86), rgba(184,154,98,0.18) 38%, rgba(16,29,50,0.08) 100%), linear-gradient(135deg, #F8F5F0 0%, #D9C7A4 100%);
   object-fit: cover;
+  object-position: center top;
+  border-bottom: 1px solid rgba(16, 29, 50, 0.08);
+  filter: saturate(1.08) contrast(1.03) brightness(1.02);
 }
 
 .profile-quick-details {
@@ -4142,7 +4149,7 @@ html[lang="te"] {
         <div class="grid grid-3" style="grid-template-columns: minmax(0, 420px); justify-content: center;">
           <article class="lawyer-card">
             <div class="lawyer-photo-wrap">
-              <div class="lawyer-photo" aria-hidden="true" style="display: grid; place-items: center; background-color: var(--color-navy); color: var(--color-gold); font-size: 4rem; font-family: var(--font-heading);">TA</div>
+              <img class="lawyer-photo" src="assets/founder-teja-ambati.jpg" alt="Teja Ambati, Founding Partner of Telugu Law House">
               <span class="lawyer-card-badge">Founding Partner</span>
             </div>
             <div class="lawyer-card-content">
@@ -4819,6 +4826,7 @@ html[lang="te"] {
     <div class="container">
       <div class="profile-grid">
         <aside class="profile-sidebar">
+          <img class="profile-main-photo" src="assets/founder-teja-ambati.jpg" alt="Teja Ambati, Founding Partner of Telugu Law House">
           <div class="profile-quick-details">
             <div class="detail-row">
               <div class="detail-label">Designation</div>
@@ -4893,7 +4901,7 @@ html[lang="te"] {
         <div class="grid grid-3" style="grid-template-columns: minmax(0, 420px); justify-content: center; margin-bottom: 4rem;">
           <article class="lawyer-card">
             <div class="lawyer-photo-wrap">
-              <div class="lawyer-photo" aria-hidden="true" style="display: grid; place-items: center; background-color: var(--color-navy); color: var(--color-gold); font-size: 4rem; font-family: var(--font-heading);">TA</div>
+              <img class="lawyer-photo" src="assets/founder-teja-ambati.jpg" alt="Teja Ambati, Founding Partner of Telugu Law House">
               <span class="lawyer-card-badge">Founding Partner</span>
             </div>
             <div class="lawyer-card-content">
